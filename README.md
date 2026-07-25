@@ -59,7 +59,7 @@ Full design notes, networking, and the host resource strategy are in
 
 ---
 
-## The pipeline, stage by stage
+## The pipeline
 
 ### 1 · Detect - Suricata on the wire, parsed by QRadar
 
@@ -89,7 +89,7 @@ automatically and dedupes them. Severity is resolved **by name** from IRIS at
 runtime, so the mapping survives installs where the numeric IDs differ.
 
 ![QRadar offenses synced into DFIR-IRIS as alerts](images/04-iris-alerts-list.png)
-<p align="center"><em>DFIR-IRIS Alerts — QRadar offenses arriving as case-managed alerts, tagged <code>qradar / offense</code>, severity-mapped.</em></p>
+<p align="center"><em>DFIR-IRIS Alerts - QRadar offenses arriving as case-managed alerts, tagged <code>qradar / offense</code>, severity-mapped.</em></p>
 
 ### 4 · Analyze - the agentic AI SOC team
 
@@ -106,19 +106,19 @@ orchestrator synthesizes them into an executive summary.
 ```
 
 ![The 5-agent team analyzing a QRadar offense](images/05-vm4-soc-engine-run.png)
-<p align="center"><em><code>soc.py</code> — the agent team producing a full incident writeup (Cobalt Strike beacon scenario): MITRE ATT&CK mapping, a deconfliction SLA, and a containment plan.</em></p>
+<p align="center"><em><code>soc.py</code> - the agent team producing a full incident writeup (Cobalt Strike beacon scenario): MITRE ATT&CK mapping, a deconfliction SLA, and a containment plan.</em></p>
 
 ### 5 · Close the loop - write the analysis back into IRIS
 
 `iris_soc.py` pulls QRadar-sourced alerts from IRIS, runs the agent team on each,
-and posts the analysis back onto the alert as a comment — deduped by a local state
+and posts the analysis back onto the alert as a comment - deduped by a local state
 file so nothing is analyzed twice.
 
 ![The autonomous loop posting AI analysis back to IRIS](images/07-vm4-autonomous-loop.png)
-<p align="center"><em><code>iris_soc.py</code> — reading QRadar alerts from IRIS, running the pipeline, and posting the AI analysis back: <code>comment POSTED OK</code>.</em></p>
+<p align="center"><em><code>iris_soc.py</code> - reading QRadar alerts from IRIS, running the pipeline, and posting the AI analysis back: <code>comment POSTED OK</code>.</em></p>
 
 The result of that comment is the executive summary shown at the top of this
-README — the full loop, from a packet on the wire to an AI-authored incident
+README - the full loop, from a packet on the wire to an AI-authored incident
 report on the case.
 
 ---
