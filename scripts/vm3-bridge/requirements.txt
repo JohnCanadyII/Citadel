@@ -1,0 +1,3 @@
+requests
+urllib3
+dfir-iris-client==2.0.4

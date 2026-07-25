@@ -1,0 +1,27 @@
+# secrets / env
+*.env
+poller.env
+.env
+
+# local runtime state
+*state*.json
+poller_state.json
+iris_soc_state.json
+
+# generated reports
+report_offense_*.md
+report_alert_*.md
+offense_*.json
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# os / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

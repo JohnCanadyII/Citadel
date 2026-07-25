@@ -1,0 +1,4 @@
+claude-agent-sdk
+dfir-iris-client==2.0.4
+requests
+urllib3
