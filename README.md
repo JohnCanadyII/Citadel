@@ -1,7 +1,7 @@
-# Agentic DFIR Platform - SIEM → NSM → SOAR → Autonomous AI
+# Agentic DFIR Platform 
 
-A full **Security Operations Center in a box**: four virtual machines that take a
-network intrusion from raw packets all the way to an AI-written incident report —
+- SIEM → NSM → SOAR → Autonomous AI: four virtual machines that take a
+network intrusion from raw packets all the way to an AI-written incident report -
 and then write that analysis *back* into the case-management system, automatically.
 
 The final stage is a **multi-agent AI SOC analyst**: one orchestrator plus four
