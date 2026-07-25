@@ -1,5 +1,7 @@
 # Agentic DFIR Platform 
 
+![Status](https://img.shields.io/badge/AI/ML%20complete-success.svg)
+
 - SIEM → NSM → SOAR → Autonomous AI: four virtual machines that take a
 network intrusion from raw packets all the way to an AI-written incident report -
 and then write that analysis *back* into the case-management system, automatically.
