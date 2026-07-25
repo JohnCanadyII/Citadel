@@ -1,8 +1,8 @@
-# Agentic DFIR Platform 
+# 🏰 Citadel — Autonomous Agentic SOC Platform
 
 ![Status](https://img.shields.io/badge/AI/ML%20complete-success.svg)
 
-- SIEM → NSM → SOAR → Autonomous AI: four virtual machines that take a
+**Citadel** is a full Security Operations Center in a box — **SIEM → NSM → SOAR → Autonomous AI**: four virtual machines that take a
 network intrusion from raw packets all the way to an AI-written incident report -
 and then write that analysis *back* into the case-management system, automatically.
 
