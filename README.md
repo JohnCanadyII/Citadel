@@ -1,6 +1,12 @@
-# 🏰 Citadel — Autonomous Agentic SOC Platform
+## Citadel
 
-![Status](https://img.shields.io/badge/AI/ML%20complete-success.svg)
+![Status](https://img.shields.io/badge/status-complete-success)
+![Pipeline](https://img.shields.io/badge/pipeline-end--to--end%20verified-success)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Platform](https://img.shields.io/badge/platform-4--VM%20lab-informational)
+![Automation](https://img.shields.io/badge/SOC-fully%20automated-6E40C9)
+![IBM QRadar](https://img.shields.io/badge/IBM%20QRadar-SIEM-052FAD?logo=ibm&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-Agent%20SDK-D97757?logo=anthropic&logoColor=white)
 
 **Citadel** is a full Security Operations Center in a box — **SIEM → NSM → SOAR → Autonomous AI**: four virtual machines that take a
 network intrusion from raw packets all the way to an AI-written incident report -
