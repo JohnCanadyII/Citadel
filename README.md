@@ -155,7 +155,7 @@ dfir-agentic-soc-platform/
 
 ## Running it
 
-**VM3 — bridge & poller**
+**VM3 - bridge & poller**
 
 ```bash
 cd scripts/vm3-bridge
@@ -170,7 +170,7 @@ IRIS_KEY=... python qradar_to_iris.py offense_1.json
 python qradar_poller.py --once
 ```
 
-**VM4 — the agent team**
+**VM4 - the agent team**
 
 ```bash
 cd scripts/vm4-agentic-ai
