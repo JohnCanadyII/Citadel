@@ -8,7 +8,7 @@
 ![IBM QRadar](https://img.shields.io/badge/IBM%20QRadar-SIEM-052FAD?logo=ibm&logoColor=white)
 ![Claude](https://img.shields.io/badge/Claude-Agent%20SDK-D97757?logo=anthropic&logoColor=white)
 
-**Citadel** is a full Security Operations Center in a box — **SIEM → NSM → SOAR → Autonomous AI**: four virtual machines that take a
+**Citadel** is a full Security Operations Center in a box - **SIEM → NSM → SOAR → Autonomous AI**: four virtual machines that take a
 network intrusion from raw packets all the way to an AI-written incident report -
 and then write that analysis *back* into the case-management system, automatically.
 
@@ -21,7 +21,7 @@ them, and posts a decision-ready writeup back onto the case.
 > QRadar offense → DFIR-IRIS alert → AI agent team → AI analysis comment back on the alert.
 
 ![AI executive summary written back into DFIR-IRIS](images/06-iris-ai-executive-summary.png)
-<p align="center"><em>The payoff: a Claude-powered agent team reads a QRadar offense from IRIS, analyzes it, and writes this executive incident summary — with a verdict, confidence, MITRE mapping, and a containment plan — straight back onto the case.</em></p>
+<p align="center"><em>The payoff: a Claude-powered agent team reads a QRadar offense from IRIS, analyzes it, and writes this executive incident summary - with a verdict, confidence, MITRE mapping, and a containment plan - straight back onto the case.</em></p>
 
 ---
 
@@ -75,21 +75,16 @@ The NSM sensor runs Suricata and Zeek, and rsyslog forwards compact EVE JSON
 alerts to QRadar, where they land under a dedicated log source and normalize into
 events.
 
+A custom CRE rule promotes Suricata alerts into **offenses** indexed by source IP -
+the SIEM's unit of "something worth a human's attention."
+
 ![QRadar parsing a Suricata alert from the NSM sensor](images/03-qradar-suricata-event.png)
 <p align="center"><em>QRadar Log Activity — a Suricata alert forwarded from <code>NSM-Sensor-Suricata</code>, parsed and normalized.</em></p>
 
 ![QRadar Log Activity — DFIRLab traffic](images/02-qradar-log-activity.png)
 <p align="center"><em>QRadar ingesting and correlating lab telemetry (a command-execution event among normalized log events).</em></p>
 
-### 2 · Correlate - QRadar turns events into offenses
-
-A custom CRE rule promotes Suricata alerts into **offenses** indexed by source IP —
-the SIEM's unit of "something worth a human's attention."
-
-![IBM QRadar](images/01-qradar-login.png)
-<p align="center"><em>IBM QRadar CE 7.6.0.0 — the SIEM at the front of the pipeline.</em></p>
-
-### 3 · Case management - offenses become DFIR-IRIS alerts
+### 2 · Case management - offenses become DFIR-IRIS alerts
 
 `qradar_to_iris.py` maps a QRadar offense into a DFIR-IRIS alert, and
 `qradar_poller.py` (a systemd timer, every 2 minutes) syncs new offenses
@@ -99,7 +94,7 @@ runtime, so the mapping survives installs where the numeric IDs differ.
 ![QRadar offenses synced into DFIR-IRIS as alerts](images/04-iris-alerts-list.png)
 <p align="center"><em>DFIR-IRIS Alerts - QRadar offenses arriving as case-managed alerts, tagged <code>qradar / offense</code>, severity-mapped.</em></p>
 
-### 4 · Analyze - the agentic AI SOC team
+### 3 · Analyze - the agentic AI SOC team
 
 `soc.py` runs **one orchestrator + four specialist agents** on the Claude Agent
 SDK. Each specialist has its own expert persona and returns structured JSON; the
@@ -116,7 +111,7 @@ orchestrator synthesizes them into an executive summary.
 ![The 5-agent team analyzing a QRadar offense](images/05-vm4-soc-engine-run.png)
 <p align="center"><em><code>soc.py</code> - the agent team producing a full incident writeup (Cobalt Strike beacon scenario): MITRE ATT&CK mapping, a deconfliction SLA, and a containment plan.</em></p>
 
-### 5 · Close the loop - write the analysis back into IRIS
+### 4 · Close the loop - write the analysis back into IRIS
 
 `iris_soc.py` pulls QRadar-sourced alerts from IRIS, runs the agent team on each,
 and posts the analysis back onto the alert as a comment - deduped by a local state
